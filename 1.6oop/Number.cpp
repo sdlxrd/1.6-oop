@@ -1,64 +1,62 @@
+//Number.cpp
+//////////////////////////////////////////////////////////////////
 #include "Number.h"
 #include <iostream>
+#include <cmath>
 #define PI 3.1415926535
 
 using namespace std;
 
-double Real::square(Number p, int n)
+void Real::Init(Real::Number num)
 {
-    double result = pow(p.getNumber(), 1.0 / n);
-    return result;
+	setNum(num);
 }
-double Real::step(int c)
-{
-    long double result = pow(PI, c);
-    return result;
-}
-void Real::Number::setNumber(double value)
-{
-    number = value;
-}
-bool Real::Number::Init(double x)
-{
-    if (x >= 0)
-    {
-        number = x;
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-double Real::Number::Read()
-{
-    double x;
-    do
-    {
-        cout << "number = ";
-        cin >> x;
-    } while (!Init(x));
-    return x;
-}
-void Real::Number::Display(Number p, Number s) const
-{
-    cout << toString(p, s) << endl;
-}
-double Real::Number::substr(Number p, Number s)
-{
-    double result = p.number - s.number;
-    return result;
-}
-double Real::Number::multiply(Number p, Number s)
-{
-    double result = p.number * s.number;
-    return result;
-}
-string Real::Number::toString(Number p, Number s) const
-{
-    stringstream sout;
 
-    sout << "first number = " << p.number << endl;
-    sout << "second number = " << s.number << endl;
+void Real::Number::Init(double number, double snumber)
+{
+	setNumber(number);
+	setsNumber(snumber);
+}
+void Real::Number::Read()
+{
+	cout << "first number = "; cin >> number;
+	cout << "second number = "; cin >> snumber;
+	Init(number, snumber);
+	cout << endl;
+}
 
-    return sout.str();
+void Real::Read()
+{
+	Real::Number f;
+	f.Read();
+	this->Init(f);
+}
+
+void Real::Display() const 
+{ 
+	num.Display(); 
+}
+void Real::Number::Display() const
+{
+	cout <<"first number = " << number << endl << "second number = " << snumber << endl << endl;
+}
+
+double Real::Number::substr()
+{
+	return number - snumber;
+}
+double Real::Number::multiply()
+{
+	return number * snumber;
+}
+
+void Real::square(double n)
+{
+	cout << "firtst square = " << pow(num.getNumber(), 1 / n) << endl;
+	cout << "second square = " << pow(num.getsNumber(), 1 / n) << endl;
+ }
+double Real::step(int n)
+{
+	cout << endl << "PI = " << pow(PI, n) << endl;
+	return pow(PI, n);
 }

@@ -1,6 +1,6 @@
+//Number.h
+//////////////////////////////////////////////////////////////////
 #pragma once
-#include "Number.cpp"
-#include <sstream>
 #include <iostream>
 
 using namespace std;
@@ -12,25 +12,30 @@ private:
 	{
 	private:
 		double number;
+		double snumber;
 	public:
 		double getNumber() const { return number; }
-		void setNumber(double value);
+		void setNumber(double number) { this->number = number; }
 
-		bool Init(double x);
-		void Display(Number p, Number s) const;    
-		double Read();
+		double getsNumber() const { return snumber; }
+		void setsNumber(double snumber) { this->snumber = snumber; }
 
-		double substr(Number p, Number s);
-		double multiply(Number p, Number s);
+		void Init(double number, double snumber);
+		void Display() const;
+		void Read();
 
-		string toString(Number p, Number s) const;
+		double substr();
+		double multiply();
 	};
 	Number num;
 public:
-	double Real::Number GetNum() const { return number; }
 	Real::Number getNum() const { return num; }
-	void setnum(Real::Number num) { this->num = num; }
-	double step(int n);
-	double square(Number p, int n);
-};
+	void setNum(Real::Number num) { this->num = num; }
 
+	void Init(Real::Number num);
+	void Read();
+	void Display() const;
+
+    double step(int n);
+	void square(double n);
+};

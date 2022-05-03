@@ -1,28 +1,23 @@
-﻿#include "Number.h"
-#include <sstream>
-#include <string>
+﻿//source.cpp
+//////////////////////////////////////////////////////////////////
+#include "Number.h"
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-	Real p, s, k, f;
+	Real f;
+	f.Read();
+	f.Display();
 
-	p.getNum().Read();
-	s.getNum().Read();
+	cout << "result of substr = " << f.getNum().substr() << endl;
+	cout << "result of multpl = " << f.getNum().multiply() << endl << endl;
+
+	double n;
+	cout << "number for square = ";
+	cin >> n;
 	
-	cout << endl;
-	k.getNum().Display(p, s);
-
-	cout << "result of Substraction = " << k.getNum().substr(p, s) << endl;
-	cout << "result of Multiplying = " << k.getNum().multiply(p, s) << endl;
-
-
-	int n;
-	cout << endl << "Stepin is: "; cin >> n;
-
-	cout << endl << "first number square = " << f.square(p, n) << endl;
-	cout << "second number square = " << f.square(s, n) << endl << endl;
-	cout << "PI result = " << f.step(n) << endl;
+	f.square(n);
+	f.step(n);
 }
