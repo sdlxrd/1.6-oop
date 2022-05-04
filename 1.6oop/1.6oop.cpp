@@ -20,4 +20,5 @@ int main()
 	
 	f.square(n);
 	f.step(n);
+	return 0;
 }
